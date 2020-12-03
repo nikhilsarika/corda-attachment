@@ -35,12 +35,12 @@ public class CheckHash extends FlowLogic<Boolean> {
         Optional<StateAndRef<AttachmentState>> state = getServiceHub().getVaultService().queryBy(AttachmentState.class)
                 .getStates().stream().filter(fil -> fil.getState().getData().getAttachmentHash().equals(attachmentHash)).findFirst();
 
-        Map<String,Boolean> responseMap = new HashMap<>();
+        System.out.println("state output : "+state.toString());
         if (state.isPresent()){
             return true;
         }
         else {
-            return true;
+            return false;
         }
 
 

@@ -1,0 +1,14 @@
+task runPartyAServer(type: JavaExec, dependsOn: jar) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'net.corda.server.Server'
+}
+
+bootJar {
+    setArchivesBaseName("corda-webserver")
+}
+
+dependencies {
+    
+    compile files("libs/contracts-0.1.jar")
+    compile files("libs/workflows-0.1.jar")
+}
